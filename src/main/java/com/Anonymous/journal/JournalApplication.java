@@ -26,3 +26,6 @@ public class JournalApplication {
 	}
 
 }
+
+//Implemented transactions(@Transactional) using local MongoDB replica set
+//Tried Mogo Atlus but... Not preferd it to use

@@ -1,5 +1,5 @@
 package com.Anonymous.journal;
-
+// in this Commit applied Spring Security on User
 import com.mongodb.client.MongoDatabase;
 import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
@@ -27,5 +27,3 @@ public class JournalApplication {
 
 }
 
-//Implemented transactions(@Transactional) using local MongoDB replica set
-//Tried Mogo Atlus but... Not preferd it to use

@@ -29,4 +29,6 @@ public class User {  //this is called POJO : plain old java obj
 
   @DBRef //list of je keep reference of Entrys from JournalEntry || by it User connect to their journal entry
   private List<JournalEntry> je = new ArrayList<>();
+
+  private List<String> roles;
 }

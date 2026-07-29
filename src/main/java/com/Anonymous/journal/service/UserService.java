@@ -7,9 +7,12 @@ import com.Anonymous.journal.reposetry.UserRepositry;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +25,14 @@ public class UserService {
 
 //for save entry Used when we POST data
     public  void saveEntry(User u){
+        UserRepo.save(u);
+    }
+
+    public static final PasswordEncoder PwEnc = new BCryptPasswordEncoder();
+
+    public  void saveNewUser(User u){
+        u.setPassword(PwEnc.encode(u.getPassword()));
+        u.setRoles(Arrays.asList("USER"));
         UserRepo.save(u);
     }
 

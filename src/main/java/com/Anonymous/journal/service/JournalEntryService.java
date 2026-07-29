@@ -29,9 +29,9 @@ public class JournalEntryService {
     @Transactional
     public  void saveEntry(JournalEntry je, String userName){
       try {
-          User user = UServ.findByUSerName(userName);
           je.setDate(LocalDateTime.now());
           JournalEntry saved = jeRepo.save(je);
+          User user = UServ.findByUSerName(userName);
           user.getJe().add(saved);
           UServ.saveEntry(user);
       } catch (Exception e){

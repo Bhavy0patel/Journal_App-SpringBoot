@@ -56,13 +56,24 @@ public class JournalEntryService {
     }
 
 //used when we use DELETE_BY_OBJID
-    public void deleteById(ObjectId id, String userName){
-        User user = UServ.findByUSerName(userName);
-        user.getJe().removeIf(x->x.getId().equals(id));
-        // if we dont write this(^) statement then id delete from JE but not from User
-        // in next save of user all deleted id will remove (spring update it at next save)
-        //but by this statement we update user too at the moment of delete
-        UServ.saveEntry(user); //we do save for same id so it will update
-        jeRepo.deleteById(id);
+    @Transactional
+    public boolean deleteById(ObjectId id, String userName){
+        boolean removed=false;
+        try {
+            User user = UServ.findByUSerName(userName);
+            removed = user.getJe().removeIf(x -> x.getId().equals(id));
+            // if we dont write this(^) statement then id delete from JE but not from User
+            // in next save of user all deleted id will remove (spring update it at next save)
+            //but by this statement we update user too at the moment of delete
+            if (removed) {
+                UServ.saveEntry(user); //we do save for same id so it will update
+                jeRepo.deleteById(id);
+            }
+        } catch(Exception e){
+            System.out.println(e);
+            throw new RuntimeException("An Erroe occur while deleting entry",e);
+        }
+        return removed;
     }
+
 }

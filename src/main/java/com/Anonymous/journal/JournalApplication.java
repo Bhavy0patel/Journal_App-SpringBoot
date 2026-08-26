@@ -1,5 +1,4 @@
 package com.Anonymous.journal;
-// in this Commit applied Spring Security on User
 import com.mongodb.client.MongoDatabase;
 import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +23,6 @@ public class JournalApplication {
 	public PlatformTransactionManager KuchBhi(MongoDatabaseFactory MdbFactory){
 		return new MongoTransactionManager(MdbFactory);
 	}
-
 }
 
+// here i added basic auth in all JEControllers

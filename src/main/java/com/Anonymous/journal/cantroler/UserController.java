@@ -26,6 +26,7 @@ public class UserController {
     @PutMapping
     public  ResponseEntity<?> updateUser(@RequestBody User user){
         Authentication Auth = SecurityContextHolder.getContext().getAuthentication();
+        //when user get Authenticated he details stored in SecurityContextHolder
         String userName = Auth.getName();
         // By ^ this we get UserName PW from postman when we Auth our self
         //so no need to take by RequestMapping

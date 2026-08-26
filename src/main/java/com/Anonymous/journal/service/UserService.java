@@ -28,11 +28,11 @@ public class UserService {
         UserRepo.save(u);
     }
 
+//used when new use created
     public static final PasswordEncoder PwEnc = new BCryptPasswordEncoder();
-
     public  void saveNewUser(User u){
         u.setPassword(PwEnc.encode(u.getPassword()));
-        u.setRoles(Arrays.asList("USER"));
+        u.setRoles(Arrays.asList("USER"));// currently only one role user
         UserRepo.save(u);
     }
 

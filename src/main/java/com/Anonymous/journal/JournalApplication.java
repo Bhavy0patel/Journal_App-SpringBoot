@@ -25,4 +25,4 @@ public class JournalApplication {
 	}
 }
 
-// here i added basic auth in all JEControllers
+//in this commit i added role base Autantication

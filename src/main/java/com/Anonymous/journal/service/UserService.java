@@ -36,6 +36,12 @@ public class UserService {
         UserRepo.save(u);
     }
 
+    public  void saveAdmin(User u){
+        u.setPassword(PwEnc.encode(u.getPassword()));
+        u.setRoles(Arrays.asList("USER","ADMIN"));// currently only one role user
+        UserRepo.save(u);
+    }
+
 //used when we GET data
     public List<User> getAll(){
        return UserRepo.findAll();
@@ -54,4 +60,5 @@ public class UserService {
     public User findByUSerName(String userName){
         return UserRepo.findByUserName(userName);
     }
+
 }

@@ -31,4 +31,6 @@ public class User {  //this is called POJO : plain old java obj
   private List<JournalEntry> je = new ArrayList<>();
 
   private List<String> roles;
+
+
 }

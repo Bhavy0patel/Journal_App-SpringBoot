@@ -25,4 +25,7 @@ public class JournalApplication {
 	}
 }
 
-//in this commit i added role base Autantication
+//in this commit i learned multiple ways for configurations
+//summery : cmd line args >> .properties >> .yml/ymal
+//^^^^^^^^ these are ways to give configurations i'll used (.yml) for my project now
+// ig it's small but IMP in Industries/ in real companies

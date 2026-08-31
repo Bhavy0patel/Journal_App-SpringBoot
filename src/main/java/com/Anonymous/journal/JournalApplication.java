@@ -25,7 +25,5 @@ public class JournalApplication {
 	}
 }
 
-//in this commit i learned multiple ways for configurations
-//summery : cmd line args >> .properties >> .yml/ymal
-//^^^^^^^^ these are ways to give configurations i'll used (.yml) for my project now
-// ig it's small but IMP in Industries/ in real companies
+//in this commit i learn Testing and its types 1.unit 2.intigration
+// i learn JUnit testing in Deep as in 'test' folder

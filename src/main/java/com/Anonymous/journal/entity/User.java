@@ -1,5 +1,6 @@
 package com.Anonymous.journal.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import lombok.NonNull;
@@ -16,6 +17,7 @@ import java.util.List;
 //this class we will connect user with journal entry || we'll add user login
 @Document(collection = "users")
 @Data
+@Builder
 public class User {  //this is called POJO : plain old java obj
   @Id
   private ObjectId id;
@@ -31,6 +33,5 @@ public class User {  //this is called POJO : plain old java obj
   private List<JournalEntry> je = new ArrayList<>();
 
   private List<String> roles;
-
 
 }

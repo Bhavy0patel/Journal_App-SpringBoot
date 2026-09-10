@@ -1,14 +1,13 @@
 spring:
-  application:
-    name: journal
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: journaldb
-      auto-index-creation: true
+  profiles:
+    active: Dev  # means 'application-Dev.yml' this file will in use
+     # we can use multiple profiles by sparaeting by coma ',' || Ex=  'active: Dev,Prod'
 
-server:
-  port: 8080
-  servlet:
-    context-path: /jrnl
+# Mainly in Prod and Dev Mongo sever, PW, configs will be changed
+
+# This is default file; in real world default will not there, we needed to set which file we want to use in Env Variable
+# Actually irl where server is used & No Default 'application.yml/.properties' we need to Run correct file by command as below
+
+#mvn spring-boot:run "-Dspring-boot.run.profiles=Dev"  <-- we are saving JVM properties by it
+#java -jar .\target\journal-0.0.1-SNAPSHOT.jar --spring.profiles.active=Dev
+#|----running s-b application----------------| |-------passing args--------|

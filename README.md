@@ -4,8 +4,8 @@ A secure, production-grade RESTful backend web service built using **Java** and 
 
 ## 🛡️ Core Security Architecture (Spring Security)
 The application is fortified using **Spring Security** to handle Authentication, Authorization, and secure data access:
-* **Authentication Method:** Implemented [Basic Auth / JWT (JSON Web Tokens)] to handle user credentials securely.
-* **Role-Based Access Control (RBAC):** Configured user permissions using `@PreAuthorize` or `SecurityFilterChain` matchers to protect sensitive administrative endpoints.
+* **Authentication Method:** Implemented Basic Auth to handle user credentials securely.
+* **Role-Based Access Control (RBAC):** Configured user permissions using `SecurityFilterChain` matchers to protect sensitive administrative endpoints.
 * **Password Encryption:** Secured user credentials in the database using the **BCryptPasswordEncoder** hashing algorithm.
 
 ## 🌟 Key Application Features
@@ -14,11 +14,11 @@ The application is fortified using **Spring Security** to handle Authentication,
 * **Environment Isolation (Profiles):** Decoupled application properties into `dev` and `prod` files to isolate database nodes and encrypt system keys.
 
 ## 🛠️ Tech Stack & Ecosystem
-* **Core Language:** Java 17 (or [Your Version])
-* **Framework:** Spring Boot v3.x (or [Your Version])
+* **Core Language:** Java 17
+* **Framework:** Spring Boot 3.5.15
 * **Security Framework:** Spring Security
-* **Data Access:** [Spring Data MongoDB / Spring Data JPA]
-* **Database:** [MongoDB Atlas / Local MongoDB / MySQL]
+* **Data Access:** Spring Data MongoDB
+* **Database:** Local MongoDB (used Replica set to Implement `@Transectional`
 * **Build Tool:** Maven
 
 ## 📁 System Architecture & Directory Layout

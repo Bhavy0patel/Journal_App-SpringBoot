@@ -18,8 +18,7 @@ import java.util.Optional;
 public class JournalEntryService {
 
     @Autowired
-    private JournalEntryRepositry jeRepo;
-    // we inject JournalEntryRepositry in to this class by above 2 lines
+    private JournalEntryRepositry jeRepo; // we inject JournalEntryRepositry in to this class by above 2 lines
 
     @Autowired
     private UserService UServ;
@@ -35,7 +34,6 @@ public class JournalEntryService {
           user.getJe().add(saved);
           UServ.saveEntry(user);
       } catch (Exception e){
-          System.out.println(e);
           throw new RuntimeException("An error Occurred while Saving Entry",e);
       //    log.error("Exception ",e); //'log' is from lombok using @Slf4j
       }

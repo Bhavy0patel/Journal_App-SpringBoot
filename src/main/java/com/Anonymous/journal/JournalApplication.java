@@ -25,5 +25,4 @@ public class JournalApplication {
 	}
 }
 
-//in this commit i learn Testing and its types 1.unit 2.intigration
-// i learn JUnit testing in Deep as in 'test' folder
+//Learn file logging done in YML and Batter way [logback.xml]

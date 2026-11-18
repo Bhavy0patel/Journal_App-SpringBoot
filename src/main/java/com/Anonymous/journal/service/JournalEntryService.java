@@ -7,13 +7,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 @Slf4j// used for 'log' at saveEntry methode
 public class JournalEntryService {
 
@@ -68,8 +69,8 @@ public class JournalEntryService {
                 jeRepo.deleteById(id);
             }
         } catch(Exception e){
-            System.out.println(e);
-            throw new RuntimeException("An Erroe occur while deleting entry",e);
+            log.error("Error",e);
+            throw new RuntimeException("An Error occur while deleting entry",e);
         }
         return removed;
     }

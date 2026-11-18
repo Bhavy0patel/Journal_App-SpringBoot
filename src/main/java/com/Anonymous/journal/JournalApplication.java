@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication // <- this = 3 Annotation 1.ComponentScan, 2.EnableAutoConfiguration, 3.Configration
 //by @Configration we can creat Bean in this class : REMEMBER
@@ -23,6 +24,11 @@ public class JournalApplication {
 	public PlatformTransactionManager KuchBhi(MongoDatabaseFactory MdbFactory){
 		return new MongoTransactionManager(MdbFactory);
 	}
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
 }
 
-//Learn file logging done in YML and Batter way [logback.xml]
+//External Weather API Integration

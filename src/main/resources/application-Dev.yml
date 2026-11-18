@@ -12,3 +12,8 @@ server:
   port: 8080
   servlet:
     context-path: /jrnl
+
+#for our use
+weather:
+  api:
+    key: f7270c1b076b8c64bdeb75c279349710

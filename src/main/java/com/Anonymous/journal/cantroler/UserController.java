@@ -1,8 +1,10 @@
 package com.Anonymous.journal.cantroler;
 
+import com.Anonymous.journal.api.responce.WeatherResponse;
 import com.Anonymous.journal.entity.User;
 import com.Anonymous.journal.reposetry.UserRepositry;
 import com.Anonymous.journal.service.UserService;
+import com.Anonymous.journal.service.weatherService;
 import org.springframework.security.core.Authentication;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class UserController {
     @Autowired
     private UserRepositry UserRepo;
 
+    @Autowired
+    private weatherService WServ;
 
     @PutMapping
     public  ResponseEntity<?> updateUser(@RequestBody User user){
@@ -37,11 +41,22 @@ public class UserController {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("/user")
+    @DeleteMapping
     public ResponseEntity<?> deleteUseByID(){
         Authentication Auth = SecurityContextHolder.getContext().getAuthentication();
         UserRepo.deleteByUserName(Auth.getName());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> Greetings(){
+        Authentication Auth = SecurityContextHolder.getContext().getAuthentication();
+        WeatherResponse WRespo = WServ.getWeather("Vadodara");
+        String Greeting="";
+        if(WRespo != null){
+            Greeting = "Weather Feels Like "+WRespo.getCurrent().getFeelslike();
+        }
+        return new ResponseEntity<>("hii "+ Auth.getName()+"! " + Greeting, HttpStatus.OK);
     }
 
 }

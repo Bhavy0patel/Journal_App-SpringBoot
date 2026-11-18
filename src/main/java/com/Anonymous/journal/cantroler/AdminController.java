@@ -1,5 +1,6 @@
 package com.Anonymous.journal.cantroler;
 
+import com.Anonymous.journal.Cache.AppCache;
 import com.Anonymous.journal.entity.User;
 import com.Anonymous.journal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,13 @@ public class AdminController {
     @PostMapping("/create-admin-user")
     public void createUser(@RequestBody User user){
         UServ.saveAdmin(user);
+    }
+
+    @Autowired
+    private AppCache appCache;
+
+    @GetMapping("clear-cache")
+    public void clearAppCache(){
+        appCache.init();
     }
 }
